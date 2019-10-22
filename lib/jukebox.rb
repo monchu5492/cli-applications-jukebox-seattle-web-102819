@@ -27,7 +27,7 @@ def play(songs)
       if songs.include?(user_responce)
         puts "Playing #{user_responce}"
       elsif songs.length >= user_responce.to_i && user_responce.to_i > 0
-        puts songs[user_responce.to_i - 1]
+        puts "Playing #{songs[user_responce.to_i - 1]}"
       else
         puts "Invalid input, please try again"
    end
@@ -53,20 +53,18 @@ end
 def run(songs)
   input = ""
   while input != "exit" do
-  puts "Please enter a command:"
-  help
-  input = gets.strip
-    if input == "exit"
-        exit_jukebox
-    elsif input == "help"
+    puts "Please enter a command:"
+    input = gets.strip
+    if input == "help"
       help
-    elsif input == "list" then
+    elsif input == "list"
       list(songs)
     elsif input == "play"
       play(songs)
+    elsif input == "exit"
+        exit_jukebox
     else
-      help
-      input
+      puts "invalid entry"
     end
   end
 end
